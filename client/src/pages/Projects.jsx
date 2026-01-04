@@ -25,8 +25,92 @@ export default function Projects() {
   }, [selectedFilter])
 
   return (
-    <div className="py-16 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
+    <div className="py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      {/* Animated Cube Background */}
+      <div className="cube-background">
+        <div className="cube" style={{ top: '10%', left: '5%', animationDuration: '25s' }}>
+          <div className="cube-face" style={{ transform: 'rotateY(0deg) translateZ(30px)' }}></div>
+          <div className="cube-face" style={{ transform: 'rotateY(90deg) translateZ(30px)' }}></div>
+          <div className="cube-face" style={{ transform: 'rotateY(180deg) translateZ(30px)' }}></div>
+          <div className="cube-face" style={{ transform: 'rotateY(-90deg) translateZ(30px)' }}></div>
+          <div className="cube-face" style={{ transform: 'rotateX(90deg) translateZ(30px)' }}></div>
+          <div className="cube-face" style={{ transform: 'rotateX(-90deg) translateZ(30px)' }}></div>
+        </div>
+        <div className="cube" style={{ top: '60%', left: '15%', animationDuration: '30s', animationDirection: 'reverse' }}>
+          <div className="cube-face" style={{ transform: 'rotateY(0deg) translateZ(30px)' }}></div>
+          <div className="cube-face" style={{ transform: 'rotateY(90deg) translateZ(30px)' }}></div>
+          <div className="cube-face" style={{ transform: 'rotateY(180deg) translateZ(30px)' }}></div>
+          <div className="cube-face" style={{ transform: 'rotateY(-90deg) translateZ(30px)' }}></div>
+          <div className="cube-face" style={{ transform: 'rotateX(90deg) translateZ(30px)' }}></div>
+          <div className="cube-face" style={{ transform: 'rotateX(-90deg) translateZ(30px)' }}></div>
+        </div>
+        <div className="cube" style={{ top: '20%', right: '10%', animationDuration: '22s' }}>
+          <div className="cube-face" style={{ transform: 'rotateY(0deg) translateZ(30px)' }}></div>
+          <div className="cube-face" style={{ transform: 'rotateY(90deg) translateZ(30px)' }}></div>
+          <div className="cube-face" style={{ transform: 'rotateY(180deg) translateZ(30px)' }}></div>
+          <div className="cube-face" style={{ transform: 'rotateY(-90deg) translateZ(30px)' }}></div>
+          <div className="cube-face" style={{ transform: 'rotateX(90deg) translateZ(30px)' }}></div>
+          <div className="cube-face" style={{ transform: 'rotateX(-90deg) translateZ(30px)' }}></div>
+        </div>
+        <div className="cube" style={{ top: '70%', right: '20%', animationDuration: '28s', animationDirection: 'reverse' }}>
+          <div className="cube-face" style={{ transform: 'rotateY(0deg) translateZ(30px)' }}></div>
+          <div className="cube-face" style={{ transform: 'rotateY(90deg) translateZ(30px)' }}></div>
+          <div className="cube-face" style={{ transform: 'rotateY(180deg) translateZ(30px)' }}></div>
+          <div className="cube-face" style={{ transform: 'rotateY(-90deg) translateZ(30px)' }}></div>
+          <div className="cube-face" style={{ transform: 'rotateX(90deg) translateZ(30px)' }}></div>
+          <div className="cube-face" style={{ transform: 'rotateX(-90deg) translateZ(30px)' }}></div>
+        </div>
+        <div className="cube" style={{ top: '35%', left: '8%', animationDuration: '27s' }}>
+          <div className="cube-face" style={{ transform: 'rotateY(0deg) translateZ(30px)' }}></div>
+          <div className="cube-face" style={{ transform: 'rotateY(90deg) translateZ(30px)' }}></div>
+          <div className="cube-face" style={{ transform: 'rotateY(180deg) translateZ(30px)' }}></div>
+          <div className="cube-face" style={{ transform: 'rotateY(-90deg) translateZ(30px)' }}></div>
+          <div className="cube-face" style={{ transform: 'rotateX(90deg) translateZ(30px)' }}></div>
+          <div className="cube-face" style={{ transform: 'rotateX(-90deg) translateZ(30px)' }}></div>
+        </div>
+        <div className="cube" style={{ top: '45%', right: '8%', animationDuration: '24s', animationDirection: 'reverse' }}>
+          <div className="cube-face" style={{ transform: 'rotateY(0deg) translateZ(30px)' }}></div>
+          <div className="cube-face" style={{ transform: 'rotateY(90deg) translateZ(30px)' }}></div>
+          <div className="cube-face" style={{ transform: 'rotateY(180deg) translateZ(30px)' }}></div>
+          <div className="cube-face" style={{ transform: 'rotateY(-90deg) translateZ(30px)' }}></div>
+          <div className="cube-face" style={{ transform: 'rotateX(90deg) translateZ(30px)' }}></div>
+          <div className="cube-face" style={{ transform: 'rotateX(-90deg) translateZ(30px)' }}></div>
+        </div>
+        <div className="cube" style={{ top: '85%', left: '25%', animationDuration: '26s' }}>
+          <div className="cube-face" style={{ transform: 'rotateY(0deg) translateZ(30px)' }}></div>
+          <div className="cube-face" style={{ transform: 'rotateY(90deg) translateZ(30px)' }}></div>
+          <div className="cube-face" style={{ transform: 'rotateY(180deg) translateZ(30px)' }}></div>
+          <div className="cube-face" style={{ transform: 'rotateY(-90deg) translateZ(30px)' }}></div>
+          <div className="cube-face" style={{ transform: 'rotateX(90deg) translateZ(30px)' }}></div>
+          <div className="cube-face" style={{ transform: 'rotateX(-90deg) translateZ(30px)' }}></div>
+        </div>
+        <div className="cube" style={{ top: '5%', left: '50%', animationDuration: '29s', animationDirection: 'reverse' }}>
+          <div className="cube-face" style={{ transform: 'rotateY(0deg) translateZ(30px)' }}></div>
+          <div className="cube-face" style={{ transform: 'rotateY(90deg) translateZ(30px)' }}></div>
+          <div className="cube-face" style={{ transform: 'rotateY(180deg) translateZ(30px)' }}></div>
+          <div className="cube-face" style={{ transform: 'rotateY(-90deg) translateZ(30px)' }}></div>
+          <div className="cube-face" style={{ transform: 'rotateX(90deg) translateZ(30px)' }}></div>
+          <div className="cube-face" style={{ transform: 'rotateX(-90deg) translateZ(30px)' }}></div>
+        </div>
+        <div className="cube" style={{ top: '90%', right: '35%', animationDuration: '23s' }}>
+          <div className="cube-face" style={{ transform: 'rotateY(0deg) translateZ(30px)' }}></div>
+          <div className="cube-face" style={{ transform: 'rotateY(90deg) translateZ(30px)' }}></div>
+          <div className="cube-face" style={{ transform: 'rotateY(180deg) translateZ(30px)' }}></div>
+          <div className="cube-face" style={{ transform: 'rotateY(-90deg) translateZ(30px)' }}></div>
+          <div className="cube-face" style={{ transform: 'rotateX(90deg) translateZ(30px)' }}></div>
+          <div className="cube-face" style={{ transform: 'rotateX(-90deg) translateZ(30px)' }}></div>
+        </div>
+        <div className="cube" style={{ top: '15%', right: '30%', animationDuration: '31s', animationDirection: 'reverse' }}>
+          <div className="cube-face" style={{ transform: 'rotateY(0deg) translateZ(30px)' }}></div>
+          <div className="cube-face" style={{ transform: 'rotateY(90deg) translateZ(30px)' }}></div>
+          <div className="cube-face" style={{ transform: 'rotateY(180deg) translateZ(30px)' }}></div>
+          <div className="cube-face" style={{ transform: 'rotateY(-90deg) translateZ(30px)' }}></div>
+          <div className="cube-face" style={{ transform: 'rotateX(90deg) translateZ(30px)' }}></div>
+          <div className="cube-face" style={{ transform: 'rotateX(-90deg) translateZ(30px)' }}></div>
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
         <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-8 text-center">
           My Projects
         </h1>

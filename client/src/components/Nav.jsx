@@ -31,7 +31,7 @@ export default function Nav() {
           <div className="flex-shrink-0">
             <NavLink
               to="/"
-              className="flex items-center hover:opacity-80 transition-opacity focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 rounded"
+              className="flex items-center space-x-3 hover:opacity-80 transition-opacity focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 rounded-lg px-2 py-1"
               aria-label="Home"
             >
               <img
@@ -39,6 +39,14 @@ export default function Nav() {
                 alt="Leo Portfolio Logo"
                 className="h-10 w-auto"
               />
+              <div className="hidden sm:block">
+                <span className="text-xl font-bold text-gray-900 dark:text-white">
+                  Leo Esc
+                </span>
+                <span className="block text-xs text-gray-600 dark:text-gray-400 -mt-1">
+                  Web Developer
+                </span>
+              </div>
             </NavLink>
           </div>
 
