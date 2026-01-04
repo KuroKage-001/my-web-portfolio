@@ -106,26 +106,36 @@ export default function Nav() {
       </div>
 
       {isMenuOpen && (
-        <div className="md:hidden border-t border-gray-200 dark:border-gray-700">
-          <div className="px-2 pt-2 pb-3 space-y-1">
-            {navLinks.map((link) => (
-              <NavLink
-                key={link.to}
-                to={link.to}
-                onClick={closeMenu}
-                className={({ isActive }) =>
-                  `block px-3 py-2 rounded-md text-base font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 ${
-                    isActive
-                      ? 'text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-gray-700'
-                      : 'text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-100 dark:hover:bg-gray-700'
-                  }`
-                }
-              >
-                {link.label}
-              </NavLink>
-            ))}
+        <>
+          {/* Backdrop Overlay */}
+          <div 
+            className="fixed inset-0 bg-black/20 dark:bg-black/40 z-30 md:hidden animate-fadeIn"
+            onClick={closeMenu}
+            aria-hidden="true"
+          />
+          
+          {/* Mobile Menu */}
+          <div className="md:hidden border-t border-gray-200 dark:border-gray-700 relative z-40 bg-white dark:bg-gray-800 animate-slideDown">
+            <div className="px-2 pt-2 pb-3 space-y-1">
+              {navLinks.map((link) => (
+                <NavLink
+                  key={link.to}
+                  to={link.to}
+                  onClick={closeMenu}
+                  className={({ isActive }) =>
+                    `block px-3 py-2 rounded-md text-base font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 ${
+                      isActive
+                        ? 'text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-gray-700'
+                        : 'text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-100 dark:hover:bg-gray-700'
+                    }`
+                  }
+                >
+                  {link.label}
+                </NavLink>
+              ))}
+            </div>
           </div>
-        </div>
+        </>
       )}
     </nav>
   )

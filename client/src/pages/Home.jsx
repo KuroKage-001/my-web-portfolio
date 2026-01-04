@@ -1,8 +1,10 @@
 import Hero from '../components/Hero'
 import ProjectCard from '../components/ProjectCard'
 import projects from '../utils/projectsData'
+import { usePageTitle } from '../hooks/usePageTitle'
 
 export default function Home() {
+  usePageTitle()
   const featuredProjects = projects.filter(project => project.featured).slice(0, 3)
 
   return (

@@ -1,8 +1,10 @@
 import { useState, useMemo } from 'react'
 import ProjectCard from '../components/ProjectCard'
 import projects from '../utils/projectsData'
+import { usePageTitle } from '../hooks/usePageTitle'
 
 export default function Projects() {
+  usePageTitle('Projects')
   const [selectedFilter, setSelectedFilter] = useState('all')
 
   const allTags = useMemo(() => {
