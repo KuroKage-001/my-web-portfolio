@@ -57,3 +57,77 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+---
+
+# Portfolio Website Backend API
+
+## Database Setup
+
+The database `db_web_portfolio` has been created in phpMyAdmin with the following configuration:
+
+**Database Configuration (.env):**
+- `DB_CONNECTION=mysql`
+- `DB_DATABASE=db_web_portfolio`
+- `DB_USERNAME=root`
+- `DB_PASSWORD=` (empty for XAMPP default)
+
+## Database Tables
+
+### contacts
+- `id` - Primary key
+- `name` - Contact name (string, required, min: 2 chars)
+- `email` - Contact email (string, required, valid email)
+- `message` - Contact message (text, required, min: 10 chars)
+- `created_at` - Timestamp
+- `updated_at` - Timestamp
+
+## API Endpoints
+
+### POST /api/contact
+Submit a new contact form message.
+
+**Request Body:**
+```json
+{
+  "name": "John Doe",
+  "email": "john@example.com",
+  "message": "Your message here"
+}
+```
+
+**Success Response (201):**
+```json
+{
+  "success": true,
+  "message": "Thank you! Your message has been sent successfully.",
+  "data": {
+    "id": 1,
+    "name": "John Doe",
+    "email": "john@example.com",
+    "message": "Your message here",
+    "created_at": "2026-01-04T12:00:00.000000Z",
+    "updated_at": "2026-01-04T12:00:00.000000Z"
+  }
+}
+```
+
+### GET /api/contacts
+Retrieve all contact messages (for admin use).
+
+## Running the Server
+
+1. Make sure XAMPP MySQL is running
+2. Start the Laravel development server:
+```bash
+php artisan serve
+```
+
+The API will be available at `http://localhost:8000`
+
+## CORS Configuration
+
+CORS is configured to allow requests from:
+- `http://localhost:5173` (Vite dev server)
+- `http://localhost:3000` (Alternative dev server)

@@ -1,6 +1,7 @@
+import { useEffect } from 'react'
 import useForm from '../hooks/useForm'
 
-export default function ContactForm() {
+export default function ContactForm({ onSuccess, onError }) {
   const initialValues = {
     name: '',
     email: '',
@@ -29,8 +30,28 @@ export default function ContactForm() {
   }
 
   const handleFormSubmit = async (values) => {
-    await new Promise(resolve => setTimeout(resolve, 1000))
-    console.log('Form submitted:', values)
+    try {
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000/api'
+      const response = await fetch(`${apiUrl}/contact`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify(values),
+      })
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Failed to send message')
+      }
+
+      return data
+    } catch (error) {
+      console.error('Error submitting form:', error)
+      throw error
+    }
   }
 
   const {
@@ -42,6 +63,16 @@ export default function ContactForm() {
     handleBlur,
     handleSubmit
   } = useForm(initialValues, validate, handleFormSubmit)
+
+  // Trigger callbacks when submit status changes
+  useEffect(() => {
+    if (submitStatus === 'success' && onSuccess) {
+      onSuccess()
+    }
+    if (submitStatus === 'error' && onError) {
+      onError()
+    }
+  }, [submitStatus, onSuccess, onError])
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
@@ -136,18 +167,6 @@ export default function ContactForm() {
       >
         {isSubmitting ? 'Sending...' : 'Send Message'}
       </button>
-
-      {submitStatus === 'success' && (
-        <div className="p-4 bg-green-100 dark:bg-green-900 border border-green-400 dark:border-green-600 text-green-700 dark:text-green-300 rounded-lg">
-          Thank you! Your message has been sent successfully.
-        </div>
-      )}
-
-      {submitStatus === 'error' && (
-        <div className="p-4 bg-red-100 dark:bg-red-900 border border-red-400 dark:border-red-600 text-red-700 dark:text-red-300 rounded-lg">
-          Oops! Something went wrong. Please try again later.
-        </div>
-      )}
     </form>
   )
 }

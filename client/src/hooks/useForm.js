@@ -46,7 +46,12 @@ export default function useForm(initialValues, validate, onSubmit) {
     try {
       await onSubmit(values)
       setSubmitStatus('success')
-      resetForm()
+      // Reset form after a delay to allow callbacks to trigger
+      setTimeout(() => {
+        setValues(initialValues)
+        setErrors({})
+        setTimeout(() => setSubmitStatus('idle'), 100)
+      }, 500)
     } catch (error) {
       setSubmitStatus('error')
       console.error('Form submission error:', error)

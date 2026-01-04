@@ -1,8 +1,19 @@
+import { useState } from 'react'
 import ContactForm from '../components/ContactForm'
+import Toast from '../components/Toast'
 import { usePageTitle } from '../hooks/usePageTitle'
 
 export default function Contact() {
   usePageTitle('Contact')
+  const [toast, setToast] = useState(null)
+
+  const showToast = (type, message) => {
+    setToast({ type, message })
+  }
+
+  const closeToast = () => {
+    setToast(null)
+  }
   return (
     <div className="py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       {/* Animated Cube Background */}
@@ -174,9 +185,18 @@ export default function Contact() {
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
             Send Me a Message
           </h2>
-          <ContactForm />
+          <ContactForm onSuccess={() => showToast('success', '🎉 Thank you! Your message has been sent successfully. I\'ll get back to you soon!')} 
+                       onError={() => showToast('error', '❌ Oops! Something went wrong. Please try again or contact me directly via email.')} />
         </div>
       </div>
+
+      {toast && (
+        <Toast 
+          type={toast.type} 
+          message={toast.message} 
+          onClose={closeToast}
+        />
+      )}
     </div>
   )
 }

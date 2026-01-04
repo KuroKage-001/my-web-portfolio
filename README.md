@@ -212,3 +212,82 @@ Logs, cache, and file uploads.
 
 React Page → Custom Hook → Axios → Laravel API → Controller → Model → Response
 
+
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js (v16+)
+- PHP (v8.2+)
+- Composer
+- MySQL (XAMPP recommended for Windows)
+
+### Database Setup
+
+1. Start XAMPP and ensure MySQL is running
+2. Create database `db_web_portfolio` in phpMyAdmin
+3. The database is already configured in `server/.env`
+
+### Server Setup (Laravel)
+
+```bash
+cd server
+
+# Install dependencies (if not already installed)
+composer install
+
+# Run migrations
+php artisan migrate
+
+# Start Laravel development server
+php artisan serve
+```
+
+The API will be available at `http://localhost:8000`
+
+### Client Setup (React)
+
+```bash
+cd client
+
+# Install dependencies
+npm install
+
+# Start Vite development server
+npm run dev
+```
+
+The client will be available at `http://localhost:5173`
+
+---
+
+## 📧 Contact Form Feature
+
+The contact form on the portfolio website is now connected to the Laravel backend:
+
+- **Frontend:** `client/src/components/ContactForm.jsx`
+- **Backend API:** `POST /api/contact`
+- **Database Table:** `contacts`
+
+### Contact Form Fields
+- Name (min: 2 characters)
+- Email (valid email format)
+- Message (min: 10 characters)
+
+All contact submissions are stored in the `contacts` table in the database.
+
+### API Endpoints
+
+**Submit Contact Form:**
+```
+POST http://localhost:8000/api/contact
+```
+
+**View All Contacts (Admin):**
+```
+GET http://localhost:8000/api/contacts
+```
+
+See `server/README.md` for detailed API documentation.
