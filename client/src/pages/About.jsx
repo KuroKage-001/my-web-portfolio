@@ -183,7 +183,7 @@ export default function About() {
               </p>
               <p>
                 My practical experience includes developing complete web applications using React, Laravel, 
-                MySQL, MongoDB, and Git/GitHub, with a strong emphasis on clean code, scalable architecture, 
+                MySQL, and Git/GitHub, with a strong emphasis on clean code, scalable architecture, 
                 and maintainable system design. I am comfortable working across both frontend and backend, 
                 ensuring performance, usability, and alignment with real-world requirements.
               </p>
